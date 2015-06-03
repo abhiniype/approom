@@ -55,3 +55,10 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# Geany project files
+*.geany
+
+#SQLite databases
+*.sqlite
+*.sqlite[2,3]
