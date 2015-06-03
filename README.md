@@ -1,2 +1,4 @@
-# approom
-A Website for Android AppRoom using Django
+# AppRoom
+
+A Website for Android AppRoom that uses Django.
+
