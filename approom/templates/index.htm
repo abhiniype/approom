@@ -4,3 +4,13 @@
   <h1>Welcome to AppRoom!</h1>
   {% lorem 3 p %}
 {% endblock %}
+{% block extra_script %}
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#fullpage').fullpage({
+      sectionsColor: ['#1e88e5', "#ffffffff"],
+      scrollingSpeed: 1000
+    });
+  });
+</script>
+{% endblock %}
