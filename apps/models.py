@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import slugify
 
 class Picture(models.Model):
     slug = models.SlugField(primary_key=True)
@@ -42,6 +43,7 @@ class Collaborator(models.Model):
 class App(models.Model):
     creator = models.ForeignKey('auth.User', related_name='my_apps')
     name = models.CharField(max_length=64)
+    slug = models.SlugField(max_length=64, blank=True)
     version = models.CharField(max_length=32)
     description = models.TextField()
     logo = models.ImageField(upload_to='logos', blank=True, null=True)
@@ -50,6 +52,21 @@ class App(models.Model):
     appcredits = models.TextField(blank=True)
     collaborators = models.ManyToManyField('Collaborator', blank=True)
     apkfile = models.FileField(blank=True)
+    
+    def generate_slug(self):
+        '''
+        Generate a slug for from the app name
+        '''        
+        slug = slugify(self.name)
+        return slug
+        
+    def save(self, *args, **kwargs):
+        # Set the slug if field is blank
+        if self.slug == 'auto' or not self.slug:
+            self.slug = self.generate_slug()
+        # Do the real save
+        super(App, self).save(*args, **kwargs)
+        
     def __unicode__(self):
         return '%(name)s [%(version)s]' % {
             'name': self.name,
