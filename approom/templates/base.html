@@ -19,9 +19,11 @@
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 
-
-  <style>
-    
+	<style type="text/css" rel="stylesheet">
+    #nav-logo{
+    	padding-left:10px;
+      font-weight:200;
+    }
   </style>
   <!--[if IE]>
     <script type="text/javascript">
@@ -42,16 +44,16 @@
 </head>
 <body class="{% block body_class %}{% endblock %}">
 
-
+	  <!--Main Navbar-->
       <nav class="navbar-fixed blue darken-1 z-depth-1">
-        <a href="#" class="brand-logo">Logo</a>
+        <a href="#" id="nav-logo" class="brand-logo">AppRoom</a>
         <ul class="right hide-on-med-and-down">
-          <li><a href="#!">First Sidebar Link</a></li>
-          <li><a href="#!">Second Sidebar Link</a></li>
+          <li><a href="#!">Apps</a></li>
+          <li><a href="#!">Ideas</a></li>
         </ul>
         <ul id="slide-out" class="side-nav">
-          <li><a href="#!">First Sidebar Link</a></li>
-          <li><a href="#!">Second Sidebar Link</a></li>
+          <li><a href="#!">Apps</a></li>
+          <li><a href="#!">Ideas</a></li>
         </ul>
         <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
       </nav>
