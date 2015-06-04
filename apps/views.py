@@ -1,3 +1,6 @@
 from django.shortcuts import render
+from django.views.generic.list import ListView
+from apps.models import App
 
-# Create your views here.
+class AppList(ListView):
+    model = App
