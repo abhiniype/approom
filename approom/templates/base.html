@@ -46,13 +46,13 @@
 
 	  <!--Main Navbar-->
       <nav class="navbar-fixed blue darken-1 z-depth-1">
-        <a href="#" id="nav-logo" class="brand-logo">AppRoom</a>
+        <a href="{% url 'home' %}" id="nav-logo" class="brand-logo">AppRoom</a>
         <ul class="right hide-on-med-and-down">
-          <li><a href="#!">Apps</a></li>
+          <li><a href="{% url 'applist' %}">Apps</a></li>
           <li><a href="#!">Ideas</a></li>
         </ul>
         <ul id="slide-out" class="side-nav">
-          <li><a href="#!">Apps</a></li>
+          <li><a href="{% url 'applist' %}">Apps</a></li>
           <li><a href="#!">Ideas</a></li>
         </ul>
         <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
