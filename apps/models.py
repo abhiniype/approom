@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
+from django.core.urlresolvers import reverse
 
 class Picture(models.Model):
     slug = models.SlugField(primary_key=True)
@@ -52,6 +53,9 @@ class App(models.Model):
     appcredits = models.TextField(blank=True)
     collaborators = models.ManyToManyField('Collaborator', blank=True)
     apkfile = models.FileField(blank=True)
+    
+    def get_absolute_url(self):
+        return reverse('app', kwargs={'slug':self.slug})
     
     def generate_slug(self):
         '''
