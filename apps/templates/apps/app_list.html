@@ -1,8 +1,29 @@
 {% extends 'base.html' %}
 {% block content %}
-<ul>
+
+<div class="container">
+  
+  <nav class="blue darken-1" style="margin-top:20px">
+    <div class="nav-wrapper">
+      <form>
+        <div class="input-field">
+          <input id="search" type="search" required>
+          <label for="search"><i class="mdi-action-search"></i></label>
+          <i class="mdi-navigation-close"></i>
+        </div>
+      </form>
+    </div>
+  </nav>
+  
+  <ul class="collection" style="margin-top:20px">
   {% for app in object_list %}
-  <li>{{app.name}}</li>
+   <li class="collection-item avatar z-depth-2">
+     <img src="http://cdn.androidcommunity.com/wp-content/uploads/2013/12/android-logo-536x540.jpg" alt="{{app.name}}" class="responsive-img circle">
+     <a href="" class="title black-text">{{app.name}}</span>
+     <p class="turnicate">{{app.description}}</p>
+     <a href="#!" class="secondary-content"><i class="mdi-hardware-keyboard-arrow-right"></i></a>
+   </li>
   {% endfor %}
 </ul>
+</div>
 {% endblock %}
