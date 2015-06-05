@@ -34,7 +34,7 @@
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
 
-  <script type="text/javascript" src="{% static 'jquery.fullPage.js' %}"></script>
+  <script type="text/javascript" src="{% static 'jquery.fullPage.min.js' %}"></script>
   <script type="text/javascript" src="{% static 'materialize/js/materialize.min.js' %}"></script>
   <script type="text/javascript">
     $(document).ready(function() {
@@ -58,11 +58,11 @@
         <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
       </nav>
 
-  <div id="fullpage">
+<!--   <div id="fullpage"> -->
     {% block content %}
-    {% lorem 10 %}
+
     {% endblock %}
-  </div>
+<!--   </div> -->
   {% block extra_script %}
   {% endblock %}
 
