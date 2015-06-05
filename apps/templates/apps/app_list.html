@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 
 <div class="container">
@@ -18,7 +19,7 @@
   <ul class="collection" style="margin-top:20px">
   {% for app in object_list %}
    <li class="collection-item avatar z-depth-2">
-     <img src="http://cdn.androidcommunity.com/wp-content/uploads/2013/12/android-logo-536x540.jpg" alt="{{app.name}}" class="responsive-img circle">
+     <img src="{% if app.logo %}{{app.logo.url}}{% else %}http://cdn.androidcommunity.com/wp-content/uploads/2013/12/android-logo-536x540.jpg{% endif %}" alt="{{app.name}}" class="responsive-img circle">
      <a href="{{app.get_absolute_url}}" class="title black-text">{{app.name}}</span>
      <p class="turnicate">{{app.description}}</p>
      <a href="#!" class="secondary-content"><i class="mdi-hardware-keyboard-arrow-right"></i></a>
