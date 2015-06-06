@@ -1,4 +1,109 @@
 {% extends 'base.html' %}
+{% block extra_style %}
+  <style type="text/css">
+    
+  </style>
+{% endblock %}
 {% block content %}
-<h1>{{object.name}}</h1>
+
+    <div id="container">
+      <div id="row">
+          <div id="appcard">
+            <div class="card">
+              <div class="card-image">
+                <img src="{% if app.logo %}{{app.logo.url}}{% else %}http://cdn.androidcommunity.com/wp-content/uploads/2013/12/android-logo-536x540.jpg{% endif %}" style="height:300px">
+              </div>
+            </div>
+          </div>
+          <div id="apptitle">
+              <div class="card-panel">
+                <h4 class="black-text truncate">
+                  {{object.name}}
+                </h4>
+              </div>
+
+              <div class="card-panel light-green lighten-2" style="height:175px">
+                <span class="black-text">
+                App Name: {{object.name}} </br>
+                Version:  {{object.version}} </br>
+
+                Download Size:  Unknown<!--TODO needs to check size of apk file -->
+                </br>
+                </br>
+                </span>
+                <a class="waves-effect waves-light btn m4 red"><i class="mdi-file-cloud left"></i>Download</a>
+              </div>
+
+          </div>
+      </div>
+        <div id="screen-shots">
+          
+          <div class="slider">
+            <ul class="slides">
+              <!-- TODO there needs to be a for loop here to loop through the screen shots -->
+              <li>
+                <img src="http://lorempixel.com/580/250/"> <!-- screen shot -->
+              </li>
+              <li>
+                <img src="http://lorempixel.com/580/250/"> <!-- screen shot -->
+              </li>
+              <li>
+                <img src="http://lorempixel.com/580/250/"> <!-- screen shot -->
+              </li>
+              <li>
+                <img src="http://lorempixel.com/580/250/"> <!-- screen shot -->
+              </li>
+              
+            </ul>
+          </div>
+
+      </div>
+        <ul class="collapsible popout" data-collapsible="accordion">
+          <li>
+            <div class="collapsible-header"><i class="mdi-content-create"></i>Description</div>
+            <div class="collapsible-body white"><p>{{object.name}} </br></br> {{object.description}}</p></div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="mdi-image-wb-incandescent"></i>Idea</div>
+            <div class="collapsible-body white"><p><!--TODO ideabase to be put here --></p></div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="mdi-social-group"></i>Credits</div>
+            <div class="collapsible-body white"><p>{{object.creator.username}} </br> {{object.appcreadits}}</p></div>
+          </li>
+        </ul>
+    </div>
+{% endblock %}
+{% block extra_script %}
+<script type="text/javascript">
+  $(document).ready(function(){
+
+      $('.slider').slider({full_width: true});
+
+      var bodyWidth = $('body').width(); 
+
+      if(bodyWidth > 320 && bodyWidth < 400) {
+          //alert('Mobile')
+      }
+
+      if(bodyWidth > 768 && bodyWidth < 1024) {
+          //alert('Tablet')   
+          $("#container").addClass("container");
+          $("#row").addClass("row");
+          $("#appcard").addClass("col s4 m4");
+          $("#apptitle").addClass("col s8 m8");
+      }
+
+      if(bodyWidth > 1224) {
+          //alert('Desktop')
+          $("#container").addClass("container");
+          $("#row").addClass("row");
+          $("#appcard").addClass("col s4 m4");
+          $("#apptitle").addClass("col s8 m8");
+          $("#sidebar").addClass("col s4 m4");
+          $("#screen-shots").addClass("col s8 m8");
+      }
+
+  });
+</script>
 {% endblock %}
