@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+
+{% load staticfiles %}
 {% block head_title %}AppRoom{% endblock %}
 {% block content %}
   <div id="fullpage" style="margin-bottom:20px">
@@ -13,7 +15,7 @@
     <div class="section" id="section2">
     <div class="container">
       <h3 class="center-align" style="font-weight:200">How It Works</h3>
-      <img id="how-it-works-big" src='../static/images/section2.png'/>
+      <img id="how-it-works-big" src='{% static "images/section2.png" %}'/>
       <div id="how-it-works-small">
         </br>
         <h6 class="flow-text center-align">You give your Genuis Idea!</h6></br>
