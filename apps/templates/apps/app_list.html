@@ -22,7 +22,7 @@
     <div class="col s3 m3">
       <div class="card">
         <div class="card-image waves-effect waves-block waves-light">
-          <img src="{% if app.logo %}{{app.logo.url}}{% else %}http://cdn.androidcommunity.com/wp-content/uploads/2013/12/android-logo-536x540.jpg{% endif %}" alt="{{app.name}}" class="responsive-img" style="height:200px">
+          <img src="{% if app.logo %}{{app.logo.url}}{% else %}{% static 'images/default_logo.jpg'%}{% endif %}" alt="{{app.name}}" class="responsive-img" style="height:200px">
         </div>
         <div class="card-content">
           <span class="card-title activator grey-text text-darken-4 truncate">{{app.name}}<i class="mdi-navigation-more-vert right"></i></span>
