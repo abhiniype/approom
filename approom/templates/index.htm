@@ -10,7 +10,18 @@
         <a class="waves-effect waves-light btn red" style="margin-top: 50px" href="{% url 'applist' %}">Browse Apps</a>
       </div>
     </div>
-    <div class="section" id="section2"></div>
+    <div class="section" id="section2">
+    <div class="container">
+      <h3 class="center-align" style="font-weight:200">How It Works</h3>
+      <img id="how-it-works-big" src='../static/images/section2.png'/>
+      <div id="how-it-works-small">
+        </br>
+        <h6 class="flow-text center-align">You give your Genuis Idea!</h6></br>
+        <h6 class="flow-text center-align">Let the Developers do the magic</h6></br>
+        <h6 class="flow-text center-align">And You enjoy all the experience of the future Android apps!</h6>
+      </div>
+    </div>
+    </div>
   </div>
 {% endblock %}
 {% block extra_script %}
@@ -20,6 +31,19 @@
       sectionsColor: ['#1e88e5', "#ffffffff"],
       scrollingSpeed: 1000
     });
+
+    var bodyWidth = $('body').width(); 
+
+    if(bodyWidth < 900) {
+        //alert('Mobile')
+        $("#how-it-works-big").hide();
+        $("#how-it-works-small").show();
+    }
+    else{
+      $("#how-it-works-big").show();
+      $("#how-it-works-small").hide();
+    }
   });
 </script>
 {% endblock %}
+
