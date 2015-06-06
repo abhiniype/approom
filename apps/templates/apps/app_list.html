@@ -16,15 +16,25 @@
     </div>
   </nav>
   
-  <ul class="collection" style="margin-top:20px">
+  <div  class="row" style="margin-top:10px">
   {% for app in object_list %}
-   <li class="collection-item avatar z-depth-2">
-     <img src="{% if app.logo %}{{app.logo.url}}{% else %}http://cdn.androidcommunity.com/wp-content/uploads/2013/12/android-logo-536x540.jpg{% endif %}" alt="{{app.name}}" class="responsive-img circle">
-     <a href="{{app.get_absolute_url}}" class="title black-text">{{app.name}}</span>
-     <p class="turnicate">{{app.description}}</p>
-     <a href="#!" class="secondary-content"><i class="mdi-hardware-keyboard-arrow-right"></i></a>
-   </li>
+
+    <div class="col s3 m3">
+      <div class="card">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img src="{% if app.logo %}{{app.logo.url}}{% else %}http://cdn.androidcommunity.com/wp-content/uploads/2013/12/android-logo-536x540.jpg{% endif %}" alt="{{app.name}}" class="responsive-img" style="height:200px">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">{{app.name}}<i class="mdi-navigation-more-vert right"></i></span>
+          <p><a href="{{app.get_absolute_url}}">More Info...</a></p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">{{app.name}}<i class="mdi-navigation-close right"></i></span>
+          <p>{{app.description}}</p>
+        </div>
+      </div>
+    </div>
   {% endfor %}
-</ul>
+</div>
 </div>
 {% endblock %}
