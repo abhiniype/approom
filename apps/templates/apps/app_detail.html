@@ -36,28 +36,19 @@
 
           </div>
       </div>
+        {% if object.screenshots.exists %}
         <div id="screen-shots">
-          
           <div class="slider">
             <ul class="slides">
-              <!-- TODO there needs to be a for loop here to loop through the screen shots -->
+              {% for pic in object.screenshots.all %}
               <li>
-                <img src="http://lorempixel.com/580/250/"> <!-- screen shot -->
+                <img src="{{pic.get_absolute_url}}"  alt="screenshot"/> 
               </li>
-              <li>
-                <img src="http://lorempixel.com/580/250/"> <!-- screen shot -->
-              </li>
-              <li>
-                <img src="http://lorempixel.com/580/250/"> <!-- screen shot -->
-              </li>
-              <li>
-                <img src="http://lorempixel.com/580/250/"> <!-- screen shot -->
-              </li>
-              
+              {% endfor %}
             </ul>
           </div>
-
-      </div>
+        </div>
+        {% endif %}
         <ul class="collapsible popout" data-collapsible="accordion">
           <li>
             <div class="collapsible-header"><i class="mdi-content-create"></i>Description</div>
