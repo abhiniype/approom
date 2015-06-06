@@ -9,12 +9,12 @@
     <div class="row">
         <div class="col-md-5">
             <form method="POST" action="{% url "account_logout" %}">
-                <legend>{% trans "Log out" %}</legend>
-                <fieldset>
-                    {% csrf_token %}
-                    <p>{% trans "Are you sure you want to log out?" %}</p>
-                    <button type="submit" class="btn btn-primary">{% trans "Log out" %}</button>
-                </fieldset>
+                <h5>{% trans "Log out:" %}</h5>
+                
+                {% csrf_token %}
+                <p>{% trans "Are you sure you want to log out?" %}</p>
+                
+                <button type="submit" class="waves-effect center-align waves-light btn red">{% trans "Log out" %}</button>
             </form>
         </div>
     </div>

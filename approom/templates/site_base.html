@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {# This template is only for compatibility with pinax-theme-bootstrap templates #}
 {% block content %}
+  <div class="container" style="width:320px">
+  <div class="card-panel" style="margin-top:20px">
   {% block body %}
   {% endblock %}
+  </div>
+  </div>
 {% endblock %}
