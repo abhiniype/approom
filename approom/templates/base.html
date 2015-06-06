@@ -49,11 +49,28 @@
         <a href="{% url 'home' %}" id="nav-logo" class="brand-logo">AppRoom</a>
         <ul class="right hide-on-med-and-down">
           <li><a href="{% url 'applist' %}">Apps</a></li>
-          <li><a href="#!">Ideas</a></li>
+          <li style="margin-right:10px"><a href="#!" >Ideas</a></li>
+          <!-- TODO needs to check if user is logged in
+              and change text to Login or Logout, and change the url 
+              so that it leads to the correct page.
+           -->
+          <!-- <li> -->
+          <a class="waves-effect waves-light red btn" style="margin-right:10px" href="">
+          Login
+          </a>
+          <!-- </li> -->
+          <!-- TODO similarly this needs to hide when user is logged in
+              and if not it has to go to the correct page -->
+          <a class="waves-effect waves-light green btn" style="margin-right:10px" href="">
+          Sign Up
+          </a>
         </ul>
         <ul id="slide-out" class="side-nav">
           <li><a href="{% url 'applist' %}">Apps</a></li>
           <li><a href="#!">Ideas</a></li>
+          <!-- TODO same as navbar to be done here -->
+          <li><a href="#!">Login</a></li>
+          <li><a href="#!">Sign Up</a></li>
         </ul>
         <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
       </nav>
