@@ -65,13 +65,19 @@
         </li>
         <li>
           <div class="collapsible-header"><i class="mdi-image-wb-incandescent"></i>Idea</div>
-          <div class="collapsible-body white">
+          <div class="collapsible-body grey" style="padding:20px 20px 20px 20px">
             {% if object.ideabase.exists %}
             {% for idea in object.ideabase.all %}
-              <p>{% if idea.title %}<a href="{{idea.get_absolute_url}}"><p>{{idea.title}}</p></a>{% endif %}<br>
-              <p>{{idea.description}}</p>
-              <p class="grey-text"><br>idea by <a href="{{idea.user.get_absolute_url}}"><b>{{idea.user.username}}</b></a>
-              </p>
+              <div class="row">
+                <div class="col s12 m4">
+                  <div class="card-panel z-depth-3" id="idea">
+                    <p>{% if idea.title %}<h5><a href="{{idea.get_absolute_url}}">{{idea.title}}</a>{% endif %}</h5><br>
+                    {{idea.description}}
+                    <br><span class="grey-text">idea by <a href="{{idea.user.get_absolute_url}}"><b>{{idea.user.username}}</b></span></a>
+                    </p>
+                  </div>                
+                </div>
+              </div>
             {% endfor %}
             {% endif %}
           </div>
@@ -91,7 +97,6 @@
   $(document).ready(function(){
 
       $('.slider').slider({full_width: true});
-
   });
 </script>
 {% endblock %}
