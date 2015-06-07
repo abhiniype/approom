@@ -16,10 +16,10 @@
     </div>
   </nav>
   
-  <div  id="row" style="margin-top:10px">
+  <div  class="row" style="margin-top:10px">
   {% for app in object_list %}
 
-    <div class="col s3 m3">
+    <div class="col s12 m4 l3">
       <div class="card">
         <div class="card-image waves-effect waves-block waves-light">
           <img src="{% if app.logo %}{{app.logo.url}}{% else %}{% static 'images/default_logo.jpg'%}{% endif %}" alt="{{app.name}}" class="responsive-img" style="height:200px">
@@ -29,7 +29,7 @@
           <p><a href="{{app.get_absolute_url}}">More Info...</a></p>
         </div>
         <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">{{app.name}}<i class="mdi-navigation-close right"></i></span>
+          <span class="card-title grey-text text-darken-4 truncate">{{app.name}}<i class="mdi-navigation-close right"></i></span>
           <p class="truncate">{{app.description}}</p>
         </div>
       </div>
@@ -41,17 +41,6 @@
 {% block extra_script %}
 <script type="text/javascript">
   $(document).ready(function(){
-
-      var bodyWidth = $('body').width(); 
-
-      if(bodyWidth < 500) {
-          //alert('Mobile')
-      }
-
-      if(bodyWidth > 500) {
-          //alert('Desktop')
-          $("#row").addClass("row");
-      }
 
   });
 </script>
