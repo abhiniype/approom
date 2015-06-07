@@ -70,7 +70,7 @@
             {% for idea in object.ideabase.all %}
               <div class="row">
                 <div class="col s12 m4">
-                  <div class="card-panel z-depth-3" id="idea">
+                  <div class="card-panel z-depth-2" id="idea">
                     <p>{% if idea.title %}<h5><a href="{{idea.get_absolute_url}}">{{idea.title}}</a>{% endif %}</h5><br>
                     {{idea.description}}
                     <br><span class="grey-text">idea by <a href="{{idea.user.get_absolute_url}}"><b>{{idea.user.username}}</b></span></a>
@@ -97,6 +97,15 @@
   $(document).ready(function(){
 
       $('.slider').slider({full_width: true});
+      $('#idea').click(function(){
+        $(document).load({{idea.get_absolute_url}});
+      });
+      $('#idea').mouseenter(function(){
+        $('#idea').addClass("z-depth-5");
+      });
+      $('#idea').mouseleave(function(){
+        $('#idea').removeClass("z-depth-5");
+      });
   });
 </script>
 {% endblock %}
