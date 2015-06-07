@@ -1,43 +1,43 @@
 {% extends 'base.html' %}
 {% block extra_style %}
   <style type="text/css">
-    
+    #logo{
+      height: 300px;
+      width: 300px;
+    }
   </style>
 {% endblock %}
 {% block content %}
-
-    <div id="container">
-      <div id="row">
-          <div id="appcard">
-            <div class="card">
-              <div class="card-image">
-                <img src="{% if app.logo %}{{app.logo.url}}{% else %}http://cdn.androidcommunity.com/wp-content/uploads/2013/12/android-logo-536x540.jpg{% endif %}" style="height:300px">
-              </div>
-            </div>
-          </div>
-          <div id="apptitle">
-              <div class="card-panel">
-                <h4 class="black-text truncate">
-                  {{object.name}}
-                </h4>
-              </div>
-
-              <div class="card-panel light-green lighten-2" style="height:175px">
-                <span class="black-text">
+  <div class="container">
+    <div class="row"><!--row1-->
+      <div class="col s12 m4"><!--logo div-->
+        <!--Card with logo goes here-->
+        <div class="card">
+          <div class="card-image">
+            <img src="{% if app.logo %}{{app.logo.url}}{% else %}http://cdn.androidcommunity.com/wp-content/uploads/2013/12/android-logo-536x540.jpg{% endif %}" id="logo">
+          </div><!-- end of card-image-->
+        </div><!--end of card-->
+      </div><!--end of logo div-->
+      <div class="col s12 m8 l8"><!--apptitle and details-->
+        <div class="card-panel">
+          <h5 class="flow-text truncate">{{object.name}}</h5>
+        </div><!--end of apptitle-->
+        <div class="card-panel">
+          <span class="black-text">
                 App Name: {{object.name}} </br>
                 Version:  {{object.version}} </br>
 
                 Download Size:  Unknown<!--TODO needs to check size of apk file -->
                 </br>
                 </br>
-                </span>
-                <a class="waves-effect waves-light btn m4 red"><i class="mdi-file-cloud left"></i>Download</a>
-              </div>
-
-          </div>
-      </div>
-        {% if object.screenshots.exists %}
-        <div id="screen-shots">
+          </span>
+          <a class="waves-effect waves-light btn s12 m4 red" id="download-button"><i class="mdi-file-cloud left"></i>Download</a>
+        </div><!--end of app details-->
+      </div><!--end of apptitle and details-->
+    </div><!--end of row1-->
+    <div><!--screen shots section-->
+      {% if object.screenshots.exists %}
+        <div class="col s12 m8">
           <div class="slider">
             <ul class="slides">
               {% for pic in object.screenshots.all %}
@@ -47,32 +47,44 @@
               {% endfor %}
             </ul>
           </div>
+        {% else %}
+          <div class="card-panel">
+            <span class="">Sorry but The author of this app
+            has not uploaded any screenshots for you to see
+            so you'll just have to download the app and see it for your self:(
+            </span>
+          </div>
         </div>
         {% endif %}
-        <ul class="collapsible popout" data-collapsible="accordion">
-          <li>
-            <div class="collapsible-header"><i class="mdi-content-create"></i>Description</div>
-            <div class="collapsible-body white"><p>{{object.name}} </br></br> {{object.description}}</p></div>
-          </li>
-          <li>
-            <div class="collapsible-header"><i class="mdi-image-wb-incandescent"></i>Idea</div>
-            <div class="collapsible-body white">
-              {% if object.ideabase.exists %}
-              {% for idea in object.ideabase.all %}
-                <p>{% if idea.title %}<a href="{{idea.get_absolute_url}}"><p>{{idea.title}}</p></a>{% endif %}<br>
-                <p>{{idea.description}}</p>
-                <p class="grey-text"><br>idea by <a href="{{idea.user.get_absolute_url}}"><b>{{idea.user.username}}</b></a>
-                </p>
-              {% endfor %}
-              {% endif %}
-            </div>
-          </li>
-          <li>
-            <div class="collapsible-header"><i class="mdi-social-group"></i>Credits</div>
-            <div class="collapsible-body white"><p>{{object.creator.username}} </br> {{object.appcreadits}}</p></div>
-          </li>
-        </ul>
-    </div>
+
+        <div><!--details colapsible-->
+      <ul class="collapsible popout" data-collapsible="accordion">
+        <li>
+          <div class="collapsible-header"><i class="mdi-content-create"></i>Description</div>
+          <div class="collapsible-body white"><p>{{object.name}} </br></br> {{object.description}}</p></div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="mdi-image-wb-incandescent"></i>Idea</div>
+          <div class="collapsible-body white">
+            {% if object.ideabase.exists %}
+            {% for idea in object.ideabase.all %}
+              <p>{% if idea.title %}<a href="{{idea.get_absolute_url}}"><p>{{idea.title}}</p></a>{% endif %}<br>
+              <p>{{idea.description}}</p>
+              <p class="grey-text"><br>idea by <a href="{{idea.user.get_absolute_url}}"><b>{{idea.user.username}}</b></a>
+              </p>
+            {% endfor %}
+            {% endif %}
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="mdi-social-group"></i>Credits</div>
+          <div class="collapsible-body white"><p>{{object.creator.username}} </br> {{object.appcreadits}}</p></div>
+        </li>
+      </ul>
+    </div><!--end of details colapsable-->
+    </div><!--end of screen shots section-->
+    
+  </div> <!--end of container -->
 {% endblock %}
 {% block extra_script %}
 <script type="text/javascript">
@@ -80,30 +92,7 @@
 
       $('.slider').slider({full_width: true});
 
-      var bodyWidth = $('body').width(); 
-
-      if(bodyWidth < 500) {
-          //alert('Mobile')
-      }
-
-      if(bodyWidth > 500 && bodyWidth < 1024) {
-          //alert('Tablet')   
-          $("#container").addClass("container");
-          $("#row").addClass("row");
-          $("#appcard").addClass("col s4 m4");
-          $("#apptitle").addClass("col s8 m8");
-      }
-
-      if(bodyWidth > 1224) {
-          //alert('Desktop')
-          $("#container").addClass("container");
-          $("#row").addClass("row");
-          $("#appcard").addClass("col s4 m4");
-          $("#apptitle").addClass("col s8 m8");
-          $("#sidebar").addClass("col s4 m4");
-          $("#screen-shots").addClass("col s8 m8");
-      }
-
   });
 </script>
 {% endblock %}
+
