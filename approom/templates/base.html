@@ -24,7 +24,21 @@
     	padding-left:10px;
       font-weight:200;
     }
+    body {
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1 0 auto;
+    }
+      
   </style>
+  
+  {% block extra_style %}
+
+  {% endblock %}
   <!--[if IE]>
     <script type="text/javascript">
        var console = { log: function() {} };

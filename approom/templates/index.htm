@@ -2,50 +2,131 @@
 
 {% load staticfiles %}
 {% block head_title %}AppRoom{% endblock %}
+{% block extra_style %}
+<style type="text/css">
+  .title{
+    margin-top:100px;
+  }
+  #title-header{
+    font-weight:300;
+  }
+  #title-text{
+    font-weight:200;
+  }
+ .parallax-container {
+    height: 400px;
+  }
+  
+  #section1{
+    height:220px;
+  }
+</style>
+{% endblock %}
 {% block content %}
-  <div id="fullpage" style="margin-bottom:20px">
-    <div class="section" id="section1">
-      <div class="container" style="text-align: center">
-        <!--Section1 content goes here-->
-        <h3 class="white-text center-align" text-align="top">Welcome to AppRoom!</h2>
-        <p class="white-text flow-text center-align">Give your Ideas to developers so they can colaborate and build the best android apps in the market!</p>
-        <a class="waves-effect waves-light btn red" style="margin-top: 50px" href="{% url 'applist' %}">Browse Apps</a>
-      </div>
-    </div>
-    <div class="section" id="section2">
-    <div class="container">
-      <h3 class="center-align" style="font-weight:200">How It Works</h3>
-      <img id="how-it-works-big" src='{% static "images/section2.png" %}'/>
-      <div id="how-it-works-small">
-        </br>
-        <h6 class="flow-text center-align">You give your Genuis Idea!</h6></br>
-        <h6 class="flow-text center-align">Let the Developers do the magic</h6></br>
-        <h6 class="flow-text center-align">And You enjoy all the experience of the future Android apps!</h6>
-      </div>
-    </div>
+
+<div class="parallax-container">
+  <div class="parallax blue darken-1">
+    <div class="title">
+      <h3 class="white-text center-align" id="title-header">Welcome to AppRoom!</h3>
+      <p class=" center-align flow-text white-text" id="title-text">Give your Ideas to developers so they can build the future of Android apps!</p>
     </div>
   </div>
+</div>
+
+<div class="section white container">
+  <div class="row">
+  
+  
+    <div class="col s12 m6 l4">
+      <div class="card" >
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" id="section1" src="https://tedconfblog.files.wordpress.com/2014/09/favorite_apps.png?w=900">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">Browse Apps<i class="mdi-navigation-more-vert right"></i></span>
+          <p><a href="#">Go to Apps</a></p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">Browse Apps <i class="mdi-navigation-close right"></i></span>
+          <p>Browse the wide range of apps posted by developers all around the world!</p>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="col s12 m6 l4">
+      <div class="card" >
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" id="section1" src="http://pencilscoop.com/public/uploads/images/2013/04/developer_icons2.jpg">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">Develop <i class="mdi-navigation-more-vert right"></i></span>
+          <p><a href="#">Sign up for a developer account</a></p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">Develop <i class="mdi-navigation-close right"></i></span>
+          <p>Join a the developer world and build and publish your own apps!</p>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="col s12 m6 l4">
+      <div class="card" >
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" id="section1" src="https://d3ui957tjb5bqd.cloudfront.net/images/screenshots/products/19/192/192426/140506_-176102633-male-and-female-user-icons-in-flat-style-for-design-f.jpg?1411647720">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">Ideas and Feedback<i class="mdi-navigation-more-vert right"></i></span>
+          <p><a href="#">Sign up for a user account</a></p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">Ideas and Feedback <i class="mdi-navigation-close right"></i></span>
+          <p>Give your app ideas to developers and rate and comment on apps to help the developers improve!</p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="card-panel green row">
+    <div class="col s12 m6"><span class="white-text">Have an Idea for an app? Bringing it to life is just a click away!
+    </span></div>
+    <div class="col s12 offset-m2 m4"><a class="waves-effect waves-light btn right red">Ideas</a></div>
+  </div>
+</div>
+
+
+
+
+<footer class="page-footer blue">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">AppRoom</h5>
+        <p class="grey-text text-lighten-4">Blah blah blah blah blah blah blah blah blah blah blah</p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">Website</h5>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="#!">Home</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Apps</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Ideas</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container center-align">
+    © 2015 Copyright AppRoom
+    </div>
+  </div>
+</footer>
 {% endblock %}
 {% block extra_script %}
 <script type="text/javascript">
-  $(document).ready(function() {
-    $('#fullpage').fullpage({
-      sectionsColor: ['#1e88e5', "#ffffffff"],
-      scrollingSpeed: 1000
+   $(document).ready(function(){
+      $('.parallax').parallax();
     });
-
-    var bodyWidth = $('body').width(); 
-
-    if(bodyWidth < 900) {
-        //alert('Mobile')
-        $("#how-it-works-big").hide();
-        $("#how-it-works-small").show();
-    }
-    else{
-      $("#how-it-works-big").show();
-      $("#how-it-works-small").hide();
-    }
-  });
 </script>
 {% endblock %}
 
